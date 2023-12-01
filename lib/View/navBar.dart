@@ -50,7 +50,7 @@ int _currentIndex=0;
                 _currentIndex=value;
               });
             }),
-            items: [
+            items: [//items of navbar
               BottomNavigationBarItem(
           icon:Image.asset("assets/homepressed.png",
                height: myHeight*0.03,
