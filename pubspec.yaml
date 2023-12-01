@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.5
   chart_sparkline: ^1.0.12
-
+  syncfusion_flutter_charts: ^20.4.48
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -75,6 +75,9 @@ flutter:
      - assets/notification.png
      - assets/notificationpressed.png
      - assets/safa.png
+     - assets/ict.png
+     - assets/back.png
+     - assets/back0.png
      - assets/openchart.png
   #   - images/a_dot_ham.jpeg
 

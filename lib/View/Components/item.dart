@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class Item extends StatelessWidget {
   var item;
-  Item({super.key, this.item});
+  Item({this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Item extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: SizedBox(
+              child: Container(
                   height: myHeight * 0.05, child: Image.network(item.image)),
             ),
             SizedBox(
@@ -30,11 +30,11 @@ class Item extends StatelessWidget {
                 children: [
                   Text(
                     item.id,
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     '0.4 ' + item.symbol,
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.normal,
                         color: Colors.grey),
@@ -47,7 +47,7 @@ class Item extends StatelessWidget {
             ),
             Expanded(
               flex: 2,
-              child: SizedBox(
+              child: Container(
                 height: myHeight * 0.05,
                 // width: myWidth * 0.2,
                 child: Sparkline(
@@ -76,19 +76,20 @@ class Item extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '\$ ${item.currentPrice}',
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    '\$ ' + item.currentPrice.toString(),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Row(
                     children: [
                       Text(
                         item.priceChange24H.toString().contains('-')
-                            ? "-\$${item.priceChange24H
+                            ? "-\$" +
+                            item.priceChange24H
                                 .toStringAsFixed(2)
                                 .toString()
-                                .replaceAll('-', '')}"
+                                .replaceAll('-', '')
                             : "\$" + item.priceChange24H.toStringAsFixed(2),
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.normal,
                             color: Colors.grey),

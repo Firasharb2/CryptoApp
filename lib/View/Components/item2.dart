@@ -1,12 +1,15 @@
 //import 'package:crypto/View/selectCoin.dart';
 import 'package:flutter/material.dart';
 
+import '../selectCoin.dart';
+
 class Item2 extends StatelessWidget {
   var item;
   Item2({super.key, this.item});
 
   @override
   Widget build(BuildContext context) {
+
     double myHeight = MediaQuery.of(context).size.height;
     double myWidth = MediaQuery.of(context).size.width;
     return Padding(
@@ -14,8 +17,8 @@ class Item2 extends StatelessWidget {
           horizontal: myWidth * 0.03, vertical: myHeight * 0.02),
       child: GestureDetector(
         onTap: () {
-         // Navigator.push(
-             // context, MaterialPageRoute(builder: (contest) => SelectCoin(selectItem: item,)));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (contest) => SelectCoin(selectItem: item,)));
         },
         child: Container(
           padding: EdgeInsets.only(
@@ -30,15 +33,14 @@ class Item2 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                                     //*0.035
-                  height: myHeight * 0.035, child: Image.network(item.image,)),
+              Container(
+                  height: myHeight * 0.035, child: Image.network(item.image)),
               SizedBox(
                 height: myHeight * 0.02,
               ),
               Text(
                 item.id,
-                style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: myHeight * 0.01,
@@ -47,12 +49,13 @@ class Item2 extends StatelessWidget {
                 children: [
                   Text(
                     item.priceChange24H.toString().contains('-')
-                        ? "-\$${item.priceChange24H
+                        ? "-\$" +
+                        item.priceChange24H
                             .toStringAsFixed(2)
                             .toString()
-                            .replaceAll('-', '')}"
+                            .replaceAll('-', '')
                         : "\$" + item.priceChange24H.toStringAsFixed(2),
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
                         color: Colors.grey),
