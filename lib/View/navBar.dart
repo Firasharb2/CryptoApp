@@ -1,5 +1,8 @@
+import 'package:cryptoapp/Wallet.dart';
 import 'package:flutter/material.dart';
+import '../BuySell.dart';
 import '../anotherPage.dart';
+import '../webSurfer.dart';
 import 'home.dart';
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -23,10 +26,14 @@ class _NavBarState extends State<NavBar> {
 int _currentIndex=0;
   List<Widget>pages=[
    const Home(),
-    const Home(),
-    AnotherPage(),
-    AnotherPage(),
-    AnotherPage(),
+    //WebViewExample(),
+   // Web(url: Uri.parse('www.google.com'),),
+    //Web(webUrl: Uri.parse('https://www.google.com')),
+    //WebSurfer(),
+    MyApp(), AnotherPage(),
+    Wallet(),
+
+
   ];
   @override
   Widget build(BuildContext context) {

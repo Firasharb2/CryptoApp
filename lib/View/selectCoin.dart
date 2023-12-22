@@ -34,6 +34,7 @@ class _SelectCoinState extends State<SelectCoin> {
 }  */
 import 'dart:convert';
 
+import 'package:cryptoapp/BuySell.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -378,24 +379,39 @@ class _SelectCoinState extends State<SelectCoin> {
                           ),
                           Expanded(
                             flex: 5,
-                            child: Container(
-                              padding:
-                              EdgeInsets.symmetric(vertical: myHeight * 0.015),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  color: Color(0xffFBC700)),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.add,
-                                    size: myHeight * 0.02,
-                                  ),
-                                  Text(
-                                    'Add to portfolio',
-                                    style: TextStyle(fontSize: 20),
-                                  ),
-                                ],
+                            child: GestureDetector(onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>BuySell(),
+                                settings: RouteSettings(
+                                  arguments: {
+                                    'image': widget.selectItem.image,
+                                    'id': widget.selectItem.id,
+                                    'price': widget.selectItem.currentPrice,
+
+                                    // Add more arguments if needed
+                                  },
+                                ),
+                              ));
+                              },
+
+                              child: Container(
+                                padding:
+                                EdgeInsets.symmetric(vertical: myHeight * 0.015),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    color: Color(0xffFBC700)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.add,
+                                      size: myHeight * 0.02,
+                                    ),
+                                    Text(
+                                      'Add to portfolio',
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -413,6 +429,7 @@ class _SelectCoinState extends State<SelectCoin> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(50),
                                     color: Color(0xffFBC700)),
+                                 // color: Color(0xff70fdb2)),
                                 child: Image.asset(
                                   'assets/back0.png',
                                   height: myHeight * 0.03,

@@ -1,9 +1,9 @@
 import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:flutter/material.dart';
 
-class Item extends StatelessWidget {
+class Item3 extends StatelessWidget {
   var item;
-  Item({this.item});
+  Item3({this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -50,21 +50,7 @@ class Item extends StatelessWidget {
               child: Container(
                 height: myHeight * 0.05,
                 // width: myWidth * 0.2,
-                child: Sparkline(
-                  data: item.sparklineIn7D.price,
-                  lineWidth: 2.0,
-                  lineColor: item.marketCapChangePercentage24H >= 0
-                      ? Colors.green
-                      : Colors.red,
-                  fillMode: FillMode.below,
-                  fillGradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      stops: const [0.0, 0.7],
-                      colors: item.marketCapChangePercentage24H >= 0
-                          ? [Colors.green, Colors.green.shade100]
-                          : [Colors.red, Colors.red.shade100]),
-                ),
+                child: SizedBox(width: myWidth*0.2,)
               ),
             ),
             SizedBox(

@@ -25,7 +25,7 @@ class Item2 extends StatelessWidget {
             left: myWidth * 0.03,
             right: myWidth * 0.06,
             top: myHeight * 0.02,
-            bottom: myHeight * 0.02,
+            bottom: myHeight * 0.01,
           ),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),

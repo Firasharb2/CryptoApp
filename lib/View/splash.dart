@@ -72,13 +72,17 @@ class _SplashState extends State<Splash> {
              const Column(
                children: [
                  Text(
-                   "The Future",
+                   "Invest for a Better Future",
+                   style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),
+                 ),
+                 Text(
+                   "ICTHARB",
                    style: TextStyle(fontSize: 50,fontWeight: FontWeight.bold),
                  ),
                  Text("Learn more about Cryptocurrency,look to",
                    style:TextStyle(fontSize: 20,fontWeight: FontWeight.normal,color: Colors.black) ,
                  ),
-                 Text("The future in ICTHARB Crypto",
+                 Text("The future in ICTHARB Crypto Exchange",
                    style: TextStyle(
                        fontSize: 20,
                        fontWeight: FontWeight.normal,
