@@ -236,7 +236,7 @@ class _SelectCoinState extends State<SelectCoin> {
                             padding: EdgeInsets.all(myHeight * 0.06),
                             child: Center(
                               child: Text(
-                                'Attention this Api is free, so you cannot send multiple requests per second, please wait and try again later.',
+                                ' please wait and try again later.',
                                 style: TextStyle(fontSize: 18),
                               ),
                             ),

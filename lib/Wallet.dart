@@ -1,5 +1,7 @@
+import 'package:cryptoapp/View/home.dart';
 import 'package:flutter/material.dart';
 
+import 'B/SCoin.dart';
 import 'coinModel.dart';
 
 class Wallet extends StatefulWidget {
@@ -13,9 +15,12 @@ class Wallet extends StatefulWidget {
 
 class _WalletState extends State<Wallet> {
 
+ // List<Coin>? boughtCoins = [];
+  List<Coin>? boughtCoins;
   @override
   void initState() {
     super.initState();
+    boughtCoins ??= <Coin>[];
   }
 
   @override
@@ -26,44 +31,59 @@ class _WalletState extends State<Wallet> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    double myHeight = MediaQuery.of(context).size.height;
-    double myWidth = MediaQuery.of(context).size.width;
 
-    var settings = ModalRoute.of(context)!.settings;
-    var arguments = settings.arguments as Map<String, dynamic>;
+    // Retrieve the boughtCoins list from the route settings
+    List<Coin> boughtCoins = ModalRoute.of(context)!.settings.arguments as List<Coin>;
 
-    var image = arguments['image'];
-    var id = arguments['id'];
-    var price = arguments['price'];
+
+
     return Scaffold(
-     // body:
-    );
-   /*
-      appBar: AppBar(title: Text("Wallet"),centerTitle: true,),
-      body: Container(
-        margin: EdgeInsets.all(30),
-        child: ListView.builder(itemBuilder: (b,position){
-          String u=data[position].uName;
-          String p=data[position].uPass;
-          return Container(
-            width: double.infinity,
-            height: 90,
-            color: Colors.orangeAccent,
-            child: Column(
-              children: [
-                Row(children: [Icon(Icons.email_outlined,size: 38,),Text(u,style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold ),)],),
-                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text(p,style: TextStyle(fontSize: 18,fontWeight:FontWeight.bold),),IconButton(onPressed: (){setState(() {
-                    data.removeAt(position);
-                  });},icon: Icon(Icons.remove_circle),)],),
-              ],
-            ),
-          );
-        },
-          itemCount: data.length,),
+      appBar: AppBar(
+        title: Text('Crypto Wallet'),
+        backgroundColor: Color(0x6C7093FF),
       ),
-    */
+      body: Column(
+        children: [
+          Text("My Cryptos"),
 
-}}
+          Expanded(
+            child: ListView.builder(
+              itemCount: boughtCoins.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage('${boughtCoins[index].image}'),
+                  ),
+                  title: Text(boughtCoins[index].id),
+                  subtitle: Text('${boughtCoins[index].price} - Quantity: ${boughtCoins[index].quantity} ${boughtCoins[index].id }'),
+                );
+              },
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Home(),
+                ),
+              );
+            },
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Color(0x6C7093FF)), // Change to your desired color
+            ),
+            child: Text(
+              "Add more Crypto",
+              style: TextStyle(
+                color: Colors.white, // Text color
+              ),
+            ),
+          ),
+          SizedBox(height: 50,)
 
+        ],
+      ),
+    );
+  }}
+//////////////
 

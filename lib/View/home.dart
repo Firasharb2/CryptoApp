@@ -2,6 +2,7 @@ import 'package:cryptoapp/coinModel.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../webSurfer.dart';
 import 'Components/item.dart';
 import 'Components/item2.dart';
 class Home extends StatefulWidget {
@@ -64,11 +65,11 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   Text(
-                    'Top 10 coins',
+                    'Top 4 coins',
                     style: TextStyle(fontSize: 18),
                   ),
                   Text(
-                    'Exprimental',
+                    'To be added',
                     style: TextStyle(fontSize: 18),
                   ),
                 ],
@@ -90,8 +91,18 @@ class _HomeState extends State<Home> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white.withOpacity(0.5)),
-                    child: Image.asset(
-                      'assets/openchart.png',
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WebViewPage(url: 'https://www.tradingview.com/'),
+                          ),
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/openchart.png',
+                      ),
                     ),
                   )
                 ],
@@ -212,7 +223,7 @@ class _HomeState extends State<Home> {
                         padding: EdgeInsets.all(myHeight * 0.06),
                         child: Center(
                           child: Text(
-                            'FREE API I CNNOT SEND ,ULTIPLE REQUEST',
+                            'FREE API I CNNOT SEND ,MULTIPLE REQUEST',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
@@ -258,7 +269,7 @@ class _HomeState extends State<Home> {
     setState(() {
       isRefreshing = false;
     });
-    //code 200 is an error type means no error
+
     if (response.statusCode == 200) {
       var x = response.body;
       coinMarketList = coinModelFromJson(x);
