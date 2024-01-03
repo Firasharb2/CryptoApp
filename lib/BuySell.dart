@@ -22,7 +22,7 @@ class BuySell extends StatefulWidget {
 class _BuySellState extends State<BuySell> {
   TextEditingController _Amount = TextEditingController();
   String Error = "";
-  List<Coin>? boughtCoins = [];// i made it nullable
+//  List<Coin>? boughtCoins = [];// i made it nullable
   Future<void> addCoin(Coin coin) async {
     final response = await http.post(
       'https://cryptoappharb.000webhostapp.com/cryptoapp/Wallet.php' as Uri,
@@ -73,7 +73,7 @@ class _BuySellState extends State<BuySell> {
   @override
   void initState() {
     super.initState();
-    boughtCoins ??= <Coin>[]; // Initialize only if null
+    boughtCoins ??= <Coin>[]; //
   }
 
   @override

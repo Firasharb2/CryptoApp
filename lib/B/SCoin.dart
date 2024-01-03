@@ -28,3 +28,4 @@ class Coin {
   );
  }
 }
+List<Coin>? boughtCoins;

@@ -16,11 +16,11 @@ class Wallet extends StatefulWidget {
 class _WalletState extends State<Wallet> {
 
  // List<Coin>? boughtCoins = [];
-  List<Coin>? boughtCoins;
+
   @override
   void initState() {
     super.initState();
-    boughtCoins ??= <Coin>[];
+   // boughtCoins ??= <Coin>[];
   }
 
   @override
